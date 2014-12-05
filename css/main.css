@@ -1,0 +1,292 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.navbar-inverse div.navbar-inner {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+	background: #222;
+	filter: none;
+}
+
+div.navbar-inverse ul.nav a {
+	font-weight: bold;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	vertical-align: baseline;
+	margin-bottom: -1px;
+}
+
+div.hero-bg {
+	margin-top: -20px;
+	background: black url(../img/heroBg.jpg) repeat-x center top;
+}
+	div.hero-unit {
+		background: transparent url(../img/heroBgBg.png) repeat-y center top;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		height: 330px;
+	}
+		div.hero-unit h1 {
+			margin-left: 60px;
+			margin-top: 0;
+			font-size: 80px;
+			text-shadow: 0 3px 5px black;
+		}
+		div.hero-unit a {
+			color:#FFF;
+			text-decoration: none;
+		}
+		div.hero-unit p {
+			margin-bottom: 20px;
+			margin-left: 60px;
+			margin-top: 40px;
+			font-size: 14px;
+			line-height: 1.4em;
+			text-shadow: 0 2px 3px black;
+			white-space: nowrap;
+		}
+			div.hero-unit p strong {
+				font-size: 19px;
+				display: block;
+			}
+		div.hero-unit div.logo {
+			width: 170px;
+			height: 337px;
+			overflow: hidden;
+		}
+			div.hero-unit div.logo img {
+				width: 100%;
+			}
+
+
+/* 
+ *	inner pages overrrides
+ */
+
+body.innerPage div.hero-unit { 
+	height: 170px;
+}
+	body.innerPage div.hero-unit h1 {
+		font-size: 52px;
+		line-height: 1em;
+		white-space: nowrap;
+	}
+	body.innerPage div.hero-unit p {
+		margin-top: 30px;
+		margin-bottom: 10px;
+		font-size: 14px;
+	}
+		body.innerPage div.hero-unit p strong {
+			font-size: 19px;
+		}
+	body.innerPage div.hero-unit div.logo {
+		width: 85px;
+		height: 167px;
+		float: right;
+		margin-right: 30px;
+		margin-top: 5px;
+	}
+
+
+
+
+
+div.content { 
+	background: #D1D9E4 url(../img/marginBg.jpg);
+}
+
+	div.content div.container { margin-top: -20px;
+		background: url(../img/contentBg.jpg);
+		box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	}
+		div.content div.contentIndents {
+			padding: 20px 40px;
+		}
+			div.span6 h3:first-child {
+				margin-top: 0;
+			}
+			
+			ul.newBooks  li,
+		   div.homeLinks li 					{ margin-left: 0; width: 100%; }
+			ul.magList   li 					{ margin-left: 0; }
+
+				ul.newBooks  a.thumbnail,
+			   div.homeLinks a.thumbnail,
+				ul.magList   a.thumbnail		{ padding: 10px; }
+
+				ul.newBooks  a.thumbnail:hover,
+			   div.homeLinks a.thumbnail:hover,
+				ul.magList   a.thumbnail:hover	{ text-decoration: none; }
+
+					ul.newBooks  img			{ width: 110px; margin-right: 20px; }
+				   div.homeLinks img			{ margin-right: 20px; margin-bottom: 20px; }
+					ul.magList   img			{ margin-bottom: 10px; width: 85px; }
+
+					ul.newBooks  h5				{  }
+				   div.homeLinks h3				{ font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin: 0; }
+
+					ul.newBooks .muted			{ color: #4D4D4D; }
+					ul.newBooks p.title			{ font-family: "Segoe UI Semibold", sans-serif; text-transform: uppercase; }
+					ul.magList  p				{ font-family: "Segoe UI Semibold", sans-serif; text-align: center; font-size: 12px; line-height: 16px; }
+				
+			div.homeLinks							{ background: #D9D9D9; padding-bottom: 0; text-shadow: 0 1px 0 rgba(255,255,255,0.4) }
+				div.homelinks hr 					{ border-top-color: #A6A6A6; border-bottom-color: #E6E6E6; margin-bottom: 0 }
+
+
+div.sideNav {
+	padding: 10px 0;
+	margin: 10px 10px 0 0;
+	width: 180px;
+}
+div.sideNav.affix {
+  top: 85px;
+}
+
+
+footer {
+	margin-top: 0; padding-top: 30px;
+	border-top: 1px solid white;
+	background: #4D4D4D;
+	box-shadow: 0 10px 10px rgba(0,0,0,0.3) inset;
+}
+
+	footer address			{ margin-left: 40px; color: white; }
+
+		footer p			{ margin-bottom: 0; color: white; }
+
+		footer a,
+		footer a:hover 		{ color: #80B9FF; }
+		
+		footer hr			{ border-top-color: black; border-bottom-color: #666 }
+
+		.footer-links 			{ margin: 10px 0; }
+			.footer-links li 	{ display: inline; margin-right: 10px; }
+
+
+
+@media (min-width: 1200px) {
+	div.hero-unit {
+	}
+		div.hero-unit h1 {
+			font-size: 100px;
+			margin-left: 80px;
+			line-height: 0.9em;
+		}
+		body.innerPage div.hero-unit h1 { font-size: 60px }
+		div.hero-unit p {
+			margin-left: 80px;
+			margin-top: 30px;
+			margin-bottom: 10px;
+			font-size: 18px;
+		}
+			div.hero-unit p strong {
+				font-size: 24px;
+			}
+		
+	ul.magList img { width: 110px; }
+	ul.magList p { font-size: 14px; line-height: 20px;}
+
+	div.sideNav { width: 240px; }
+}
+
+@media (max-width: 980px) {
+	div.navbar-fixed-top {
+		margin-bottom: 0;
+	}
+	div.hero-bg {
+		margin-top: 0;
+	}
+	div.hero-unit {
+		height: 170px;
+	}
+		body.innerPage div.hero-unit h1,
+		div.hero-unit h1 {
+			font-size: 46px;
+			margin-left: 0;
+			line-height: 1em;
+			white-space: nowrap;
+		}
+		div.hero-unit p {
+			margin-left: 0;
+			margin-top: 30px;
+			margin-bottom: 10px;
+			font-size: 14px;
+		}
+			div.hero-unit p strong {
+				font-size: 19px;
+			}
+		div.hero-unit div.logo {
+			width: 85px;
+			height: 167px;
+			float: right;
+			margin-right: 30px;
+			margin-top: 5px;
+		}
+	div.content div.contentIndents {
+		padding: 10px 30px;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+		
+		ul.magList img { width: 55px; }
+		ul.magList p { font-size: 11px; line-height: 14px }
+	
+	div.sideNav { width: 140px; }
+
+	footer address { margin-left: 30px; }
+	
+}
+
+@media (max-width: 767px) {
+	body.innerPage div.hero-unit,
+	div.hero-unit {
+		padding-left: 30px;
+		padding-right: 30px;
+		height: auto;
+	}
+	body.innerPage div.hero-unit h1,
+	div.hero-unit h1 {
+		font-size: 36px;
+		margin-left: 0;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		white-space: normal;
+	}
+	div.hero-unit div.logo,
+	div.hero-unit p {
+		display: none;
+	}
+
+	ul.magList img { width: 110px; }
+	ul.magList p { font-size: 14px; line-height: 20px }
+	.footer-links { padding: 0 30px; }
+
+	div.sideNav { width: auto; position: static; }
+
+}
+
+@media (max-width: 480px) {
+	div.hero-unit {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	body.innerPage div.hero-unit h1,
+	div.hero-unit h1 {
+		font-size: 34px;
+		margin-left: 0;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		white-space: normal;
+	}
+	div.content div.contentIndents {
+		padding: 10px 20px;
+	}
+
+	footer address { margin-left: 20px; }
+	.footer-links { padding: 0 20px; }
+
+
+}
+.span6{text-align: left;}
