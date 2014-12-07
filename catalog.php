@@ -1,6 +1,7 @@
-<?php session_start()?>
-<?php include("pgsql.php") ?>
 <?php 
+include_once("auth.php");
+include("pgsql.php");
+ 
 if(isset($_GET['exit']) || !isset($_SESSION['login'])){
 session_destroy();
 echo('	<meta http-equiv="refresh" content="0;url=avtoriz.html">');

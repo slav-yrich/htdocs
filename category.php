@@ -1,6 +1,9 @@
-<?php session_start()?>
-<?php include("pgsql.php") ?>
-<?php if(isset($_GET['exit'])) {
+<?php 
+
+include_once("auth.php");
+include("pgsql.php");
+
+if(isset($_GET['exit'])) {
 session_destroy();
 echo '<a href="avtoriz.html">Войдите в систему</a><br>
 	<a href="regis.html">или зарегистрируйтесь</a>';

@@ -1,5 +1,5 @@
 <?php
-session_start()
+include_once("auth.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="ru">

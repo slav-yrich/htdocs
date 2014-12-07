@@ -1,5 +1,8 @@
-<?php session_start();
- include('pgsql.php');
+<?php
+
+include_once("auth.php");
+include('pgsql.php');
+
 $passtel=$_POST['passtel'];
 
 $newpass=$_POST['newpass'];

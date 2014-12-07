@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php include_once("auth.php");?>
 <!DOCTYPE html>
 <?php include("pgsql.php");
 if(isset($_GET['exit']) || !isset($_SESSION['login'])){

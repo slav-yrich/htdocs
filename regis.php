@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php include_once("auth.php");?>
 <!DOCTYPE HTML>
 <?php if(isset($_GET['exit'])){
 session_destroy();

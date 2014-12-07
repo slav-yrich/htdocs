@@ -1,11 +1,12 @@
-<?php session_start();
+<?php 
+include_once("auth.php");
  include('pgsql.php');
 $login=$_POST['login'];
 $pass=$_POST['pass'];
 $pass=($pass);
 
  $query="SELECT * FROM reader WHERE login = '$login'";
- $result = pg_query($query) or die(pg_error());
+ $result = pg_query($query);
  $row = pg_fetch_array($result);
  unset($_SESSION['error_auth']);
  if (isset($row)) {
