@@ -1,6 +1,7 @@
 <?php session_start();?>
 <!DOCTYPE HTML>
-<?php if(isset($_GET['exit'])){
+<?php 
+if(isset($_GET['exit'])){
 session_destroy();
 echo('	<meta http-equiv="refresh" content="0;url=avtoriz.html">');
 exit;
@@ -84,35 +85,39 @@ include ('pgsql.php'); // ------------------------------------------------------
 				            <colgroup width="230" >
 				            <colgroup width="150" >
 				              	<tr>
-					            	<td>Логин:</td>
+					            	<td>*Логин:</td>
 					            	<td class="td"><input type="text" name="login"></td>
 					            </tr>
 								<tr>
-					            	<td>Пароль:</td>
-					            	<td class="td"><input type="password" name="pass1"></td>
+					            	<td>*Пароль:</td>
+					            	<td class="td"><input type="password" name="pass1">
+										<script language="javascript">	
+											document.getElementById('pass1').value = hex_md5(document.getElementById('pass1'));
+										</script>
+										</td>
 					            </tr>
 								<tr>
-					            	<td>Подтвердите пароль:</td>
+					            	<td>*Подтвердите пароль:</td>
 					            	<td class="td"><input type="password" name="pass2"></td>
 					            </tr>
 								<tr>
-				              		<td>Фамилия:</td>
+				              		<td>*Фамилия:</td>
 				              		<td class="td"><input type="text" name="name"></td>
 				              	</tr>
 					            <tr>
-					            	<td>Имя:</td>
+					            	<td>*Имя:</td>
 					            	<td class="td"><input type="text" name="fname"></td>
 					            </tr>
 					            <tr>
-					            	<td>Отчество:</td>
+					            	<td>*Отчество:</td>
 					            	<td class="td"><input type="text" name="oname"></td>
 					            </tr>
 					            <tr>
-					            	<td>Дата рождения:</td>
+					            	<td>*Дата рождения:</td>
 					            	<td class="td"><input type="date" name="datebirds"></td>
 					            </tr>
 					            <tr>
-					            	<td>Организация:</td>
+					            	<td>*Организация:</td>
 					            	<td class="td"><select name="org">
 													<?php
 									$handle = pg_query("SELECT count(1) FROM organization");
@@ -127,7 +132,7 @@ include ('pgsql.php'); // ------------------------------------------------------
 									?></select></td>
 					            </tr>
 				            	<tr>
-				            		<td>Отдел:</td>
+				            		<td>*Отдел:</td>
 				            		<td class="td"><select name="deprt">
 													<?php
 									$handle = pg_query("SELECT count(1) FROM department");
@@ -143,7 +148,7 @@ include ('pgsql.php'); // ------------------------------------------------------
 									</td>
 				            	</tr>
 													            <tr>
-					            	<td>Группа:</td>
+					            	<td>*Группа:</td>
 					            	<td class="td"><input type="text" name="group"></td>
 					            </tr>
 													            <tr>
@@ -151,7 +156,7 @@ include ('pgsql.php'); // ------------------------------------------------------
 					            	<td class="td"><input type="text" name="tel"></td>
 					            </tr>
 													            <tr>
-					            	<td>Электронная почта:</td>
+					            	<td>*Электронная почта:</td>
 					            	<td class="td"><input type="text" name="adress"></td>
 					            </tr>						            
 								<tr>
@@ -159,7 +164,7 @@ include ('pgsql.php'); // ------------------------------------------------------
 				            		<td class="td"><input type="file" name="picture"></td>
 				            	</tr>
 								<tr>
-				            		<td>Введите текст с картинки:</td>
+				            		<td>*Введите текст с картинки:</td>
 									<td></td>
 				            	</tr>
 								<tr>
