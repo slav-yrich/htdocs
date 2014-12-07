@@ -14,11 +14,11 @@ window.open(popupPath,'name',
 }
 </script>
 	<?php 
-include ('pgsql.php'); // ------------------------------------------------------- ПОДКЛЮЧЕНИЕ К БД
+include ('pgsql.php'); // ------------------------------------------------------- РџРћР”РљР›Р®Р§Р•РќРР• Рљ Р‘Р”
 
 ?>
 	<meta charset="utf-8">
-	<title>Личный кабинет</title>
+	<title>Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</title>
 	
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,13 +44,13 @@ include ('pgsql.php'); // ------------------------------------------------------
 						<form class="navbar-search form-search" action="/search_form/search.htm" method="POST">
 							<div class="input-append">
 								
-<a href="regis.html" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;Регистрация</a>
-						<a href="avtoriz.html" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;Авторизация</a>
+<a href="regis.html" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
+						<a href="avtoriz.html" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;РђРІС‚РѕСЂРёР·Р°С†РёСЏ</a>
 							</div>
 						</form>
 					</div>
 					<div class="span2">
-						<a href="lk.php?exit=1" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;Выход</a>
+						<a href="lk.php?exit=1" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal">&nbsp;Р’С‹С…РѕРґ</a>
 					</div>
 				</div>
 			</div>
@@ -64,8 +64,8 @@ include ('pgsql.php'); // ------------------------------------------------------
 		<div class="container">
 			<div class="row">
 				<div class="span8">
-					<p>Санкт-Петербургское государственное бюджетное учреждение культуры <strong>"Государственный музей городской скульптуры"</strong></p>
-					<h1><a href="/">Библиотека музея</a></h1>
+					<p>РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРіСЃРєРѕРµ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРµ Р±СЋРґР¶РµС‚РЅРѕРµ СѓС‡СЂРµР¶РґРµРЅРёРµ РєСѓР»СЊС‚СѓСЂС‹ <strong>"Р“РѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹Р№ РјСѓР·РµР№ РіРѕСЂРѕРґСЃРєРѕР№ СЃРєСѓР»СЊРїС‚СѓСЂС‹"</strong></p>
+					<h1><a href="/">Р‘РёР±Р»РёРѕС‚РµРєР° РјСѓР·РµСЏ</a></h1>
 				</div>
 				<div class="span4"></div>
 			</div>
@@ -78,12 +78,62 @@ include ('pgsql.php'); // ------------------------------------------------------
 		<div class="contentIndents">
 			<div class="row-fluid">
 				<div class="span6">
-					<h1>Регистрация</h1>
+					<h1>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h1>
 						<?php
-							$handle = pg_query("SELECT id FROM reader");
-							$tmp  = pg_fetch_array($handle);
-							$t=max($tmp)+1;
-							pg_query("INSERT INTO reader (id, barcode) VALUES ('$t','123')");
+							if (($_POST['fname']!='')&&($_POST['name']!='')&&($_POST['oname']!='')&&($_POST['datebirds']!='')&&($_POST['org']!='')&&($_POST['deprt']!='')&&($_POST['group']!='')&&($_POST['adress']!='')&&($_POST['login']!='')&&($_POST['pass1']!='')&&($_POST['pass2']!='')&&($_POST['captcha']!='')){
+								$arr=pg_fetch_array(pg_query("SELECT * FROM reader WHERE login='".$_POST['login']."'"));
+								if(empty($arr)){
+									if ($_SESSION['secpic']==$_POST['captcha'])	{
+										if ($_POST['pass1']==$_POST['pass2']){
+											if (strlen($_POST['login'])<=14){	
+												$handle = pg_query("SELECT MAX(id) FROM reader");
+												$tmp  = pg_fetch_array($handle);
+												$t1=max($tmp)+1;
+												$handle = pg_query("SELECT MAX(barcode) FROM reader");
+												$tmp  = pg_fetch_array($handle);
+												$t2=max($tmp)+1;
+												$password=MD5($_POST['pass1']);
+												pg_query("INSERT INTO reader (id, barcode,name,password,surname,patronymic,datebirth,position,login,department,organization,address) 
+													VALUES 
+														('$t1',
+														'$t2',
+														'".$_POST['fname']."',
+														'".MD5($_POST['pass1'])."',
+														'".$_POST['name']."',
+														'".$_POST['oname']."',
+														'".$_POST['datebirds']."',
+														'".$_POST['group']."',
+														'".$_POST['login']."',
+														'".(int)$_POST['depart']."',
+														'".(int)$_POST['org']."',
+														'".$_POST['adress']."')
+												");
+												echo("РњРѕРё РїРѕР·РґСЂР°РІР»РµРЅРёСЏ, ".$_POST['fname'].", Р’С‹ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ!<br><a href='avtoriz.html'>РђРІС‚РѕСЂРёР·Р°С†РёСЏ</a>");
+											}
+											else
+											{
+												echo('РџСЂРёРґСѓРјР°Р№ Р»РѕРіРёРЅ РїРѕРєРѕСЂРѕС‡Рµ!<br><a href="registr.php">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЂРµРіРёСЃС‚СЂР°С†РёРё</a>');
+											}
+										}
+										else
+										{
+											echo('РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚!<br><a href="registr.php">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЂРµРіРёСЃС‚СЂР°С†РёРё</a>');
+										}
+									}
+									else
+									{
+										echo('РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РєРѕРґ СЃ РєР°СЂС‚РёРЅРєРё!<br><a href="registr.php">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЂРµРіРёСЃС‚СЂР°С†РёРё</a>');
+									}
+								}
+								else
+								{
+									echo('Р”Р°РЅРЅС‹Р№ Р»РѕРіРёРЅ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<br><a href="registr.php">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЂРµРіРёСЃС‚СЂР°С†РёРё</a>');
+								}
+							}
+							else
+							{ 
+								echo('Р’РІРµРґРµРЅС‹ РЅРµ РІСЃРµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ!<br><a href="registr.php">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЂРµРіРёСЃС‚СЂР°С†РёРё</a>');
+							}
 						?>
 				</div>
 
@@ -96,29 +146,29 @@ include ('pgsql.php'); // ------------------------------------------------------
 							<li>
 								<a href="korzina.php" class="thumbnail">
 									<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
-									<h3>Корзина</h3>
+									<h3>РљРѕСЂР·РёРЅР°</h3>
 									<div class="clearfix"></div>
 								</a>
 							</li>
 							<li>
 								<a href="catalog.php" class="thumbnail">
 									<img src="img/icon-archive_64.png" class="pull-left" alt="">
-									<h3>Каталог</h3>
+									<h3>РљР°С‚Р°Р»РѕРі</h3>
 									<div class="clearfix"></div>
 								</a>
 							</li>
 							<li>
 								<a href="poisk.php" class="thumbnail">
 									<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
-									<h3>Поиск</h3>
+									<h3>РџРѕРёСЃРє</h3>
 									<div class="clearfix"></div>
 								</a>
 							</li>
 							<li>
 								<a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
 									<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
-									<h3>Личный кабинет</h3>
-									<p><small>Вход в личный кабинет сотрудника</small></p>
+									<h3>Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</h3>
+									<p><small>Р’С…РѕРґ РІ Р»РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚ СЃРѕС‚СЂСѓРґРЅРёРєР°</small></p>
 									<div class="clearfix"></div>
 								</a>
 							</li>
@@ -136,23 +186,23 @@ include ('pgsql.php'); // ------------------------------------------------------
 		<div class="row">
 <div class="span4">
 				<address>
-					<strong>СПб ГБУК "ГМГС"</strong><br>
-					197101, Санкт-Петербург,<br>
-					Невский проспект 179<br>
-					<abbr title="Телефон">тел.</abbr>: +7 (812) 274 26 35
+					<strong>РЎРџР± Р“Р‘РЈРљ "Р“РњР“РЎ"</strong><br>
+					197101, РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі,<br>
+					РќРµРІСЃРєРёР№ РїСЂРѕСЃРїРµРєС‚ 179<br>
+					<abbr title="РўРµР»РµС„РѕРЅ">С‚РµР».</abbr>: +7 (812) 274 26 35
 				</address>
 				<address>
-					<strong>Разработано в Отделе ИТ:</strong><br>
+					<strong>Р Р°Р·СЂР°Р±РѕС‚Р°РЅРѕ РІ РћС‚РґРµР»Рµ РРў:</strong><br>
 					<i class="icon-envelope icon-white"></i>&nbsp;<a href="mailto:it.gmgs@gmail.com">it.gmgs@gmail.com</a>
 				</address>
 			</div>
 
 			<div class="span8">
 				<ul class="footer-links">
-					<li class="pull-right"><a href="#"><i class="icon-arrow-up"></i>&nbsp;Наверх</a></li>
-					<li><a href="korzina.php">Корзина</a></li>
-					<li><a href="catalog.php">Каталог</a></li>
-					<li><a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank">Личный кабинет</a></li>
+					<li class="pull-right"><a href="#"><i class="icon-arrow-up"></i>&nbsp;РќР°РІРµСЂС…</a></li>
+					<li><a href="korzina.php">РљРѕСЂР·РёРЅР°</a></li>
+					<li><a href="catalog.php">РљР°С‚Р°Р»РѕРі</a></li>
+					<li><a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank">Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</a></li>
 					
 				</ul>
 				<hr>

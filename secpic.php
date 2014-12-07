@@ -2,7 +2,7 @@
  $height = 60;                  
  $font_size = 17.5;   			
  $let_amount = 7;               
- $width = 23*$let_amount;       
+ $width = 25*$let_amount;       
  $fon_let_amount = 30;          
  $path_fonts = 'fonts/';        
  
@@ -25,13 +25,13 @@
  }
  closedir($dir);
  
- for($i=0;$i<$fon_let_amount;$i++)
+ for($i=0;$i<2*$fon_let_amount;$i++)
  {
    $color = imagecolorallocatealpha($src,rand(0,255),rand(0,255),rand(0,255),100); 
    $font = $path_fonts.$fonts[rand(0,sizeof($fonts)-1)];
    $letter = $letters[rand(0,sizeof($letters)-1)];
    $size = rand($font_size-2,$font_size+2);
-   imagettftext($src,$size,rand(0,45),rand($width*0.1,$width-$width*0.1),rand($height*0.2,$height),$color,$font,$letter);
+   imagettftext($src,$size,rand(0,45),rand($width*0.1,$width-$width*0.1),rand($height*0.1,$height),$color,$font,$letter);
  }
  
  for($i=0;$i<$let_amount;$i++)
@@ -45,7 +45,6 @@
    $cod[] = $letter;   
    imagettftext($src,$size,rand(0,15),$x,$y,$color,$font,$letter);
  }
- 
  $_SESSION['secpic'] = implode('',$cod);
  header ("Content-type:image/gif"); 
  imagegif($src);
