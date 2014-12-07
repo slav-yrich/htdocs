@@ -17,7 +17,7 @@ div.navbar-inverse ul.nav a {
 }
 
 div.hero-bg {
-	margin-top: -20px;
+	margin-top: 40px;
 	background: black url(../img/heroBg.jpg) repeat-x center top;
 }
 	div.hero-unit {
@@ -64,7 +64,7 @@ div.hero-bg {
  *	inner pages overrrides
  */
 
-body.innerPage div.hero-unit { 
+body.innerPage div.hero-unit {
 	height: 170px;
 }
 	body.innerPage div.hero-unit h1 {
@@ -92,11 +92,11 @@ body.innerPage div.hero-unit {
 
 
 
-div.content { 
+div.content {
 	background: #D1D9E4 url(../img/marginBg.jpg);
 }
 
-	div.content div.container { margin-top: -20px;
+	div.content div.container {
 		background: url(../img/contentBg.jpg);
 		box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	}
@@ -289,4 +289,3 @@ footer {
 
 
 }
-.span6{text-align: left;}
