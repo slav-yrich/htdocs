@@ -6,7 +6,7 @@ include_once("auth.php");
  $let_amount = 7;               
  $width = 25*$let_amount;       
  $fon_let_amount = 30;          
- $path_fonts = 'fonts/';        
+ $path_fonts = './fonts/';        
  
  
  $letters = array('a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','2','3','4','5','6','7','9');

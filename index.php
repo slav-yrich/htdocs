@@ -1,5 +1,6 @@
 <?php
 include_once("auth.php");
+include_once("pgsql.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="ru">
@@ -61,7 +62,7 @@ exit;
 							<li class="divider-vertical"></li>
 							<li><a href="/catalog/catalog.htm" rel="tooltip" title="Каталог методических пособий">Каталог</a></li>
 						</ul>
-						<form class="navbar-search form-search" action="/search_form/search.htm" method="POST">
+						<form class="navbar-search form-search" action="/index.php?p=poisk" method="POST">
 							<div class="input-append">
 								<input type="text" class="span3 search-query" placeholder="Поиск по каталогу" name="searchTextBox">
 								<button type="submit" class="btn">Найти</button>
@@ -101,9 +102,21 @@ exit;
 	<div class="container">
 		<div class="contentIndents">
 		<?php
-			switch ($_GET['p']) {
+			switch (@$_GET['p']) {
 				case 'main':
 					require(__DIR__.'/pages/main.php');
+					break;
+				case 'regis':
+					require(__DIR__.'/pages/regis.php');
+					break;
+				case 'registr':
+					require(__DIR__.'/pages/registr.php');
+					break;
+				case 'poisk':
+					require(__DIR__.'/pages/poisk.php');
+					break;
+				case 'poisk_next':
+					require(__DIR__.'/pages/poisk_next.php');
 					break;
 				default:
 					require(__DIR__.'/pages/main.php');
@@ -168,6 +181,12 @@ exit;
 				<div class="controls">
 					<label class="checkbox"><input type="checkbox"> Запомнить</label>
 					<button type="submit" class="btn">Войти</button>
+					<script type="text/javascript">
+					function reg() {
+					window.location.href='/index.php?p=registr';
+					}
+					</script>
+					<button class="btn" type="button" onclick="reg()">Регистрация</button>
 				</div>
 			</div>
 		</form>

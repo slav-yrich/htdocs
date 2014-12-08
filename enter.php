@@ -11,7 +11,7 @@ $pass=($pass);
  unset($_SESSION['error_auth']);
  if (isset($row)) {
  	if (($pass) == $row['password'])
- 		{header ('Location:lk.php?id='.$row['id']);
+ 		{header ('Location:index.php?p=lk&id='.$row['id']);
  	$_SESSION['login']=$row['id'];
  	$_SESSION['pass']=$row['password'];
  	
@@ -19,7 +19,7 @@ $pass=($pass);
  	exit();}
  	else {
  		$_SESSION['error_auth'] = 1;
- 		header ('Location:avtoriz.html');
+ 		header ('Location:/index.php');
 
  }
  }
