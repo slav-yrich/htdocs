@@ -1,7 +1,8 @@
 <div class="row-fluid">
-				<div class="span6">
-				<?php
-				$id=$_SESSION['login'];
+			<div class="span6">
+			<?php
+
+$id=$_SESSION['login'];
 $query="SELECT * FROM reader WHERE id=$id";
 $sql=pg_query($query);
 $row=pg_fetch_array($sql);
