@@ -10,21 +10,17 @@ $pass=($pass);
  $row = pg_fetch_array($result);
  unset($_SESSION['error_auth']);
  if (isset($row)) {
- 	if (md5($pass) == $row['password'])
- 		{header ('Location:index.php?p=lk&id='.$row['id']);
- 	$_SESSION['login']=$row['id'];
- 	//$_SESSION['pass']=$row['password'];
- 	
- 	
- 	exit();}
- 	else {
+ 	if (md5($pass) == $row['password']) {
+		header ('Location:index.php?p=lk&id='.$row['id']);
+	 	$_SESSION['login']=$row['id']; 	
+ 		exit()
+; 	} else {
  		$_SESSION['error_auth'] = 1;
- 		header ('Location:/index.php');
-
- }
+ 		header ('Location:/index.php?p=autherr');
+ 	}
  }
  else {
-header ('Location:/index.php?p=registr');
+	header ('Location:/index.php?p=registr');
  	exit();
  }
  ?>

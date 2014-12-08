@@ -118,6 +118,9 @@ exit;
 				case 'poisk_next':
 					require(__DIR__.'/pages/poisk_next.php');
 					break;
+				case 'autherr':
+					require(__DIR__.'/pages/autherr.php');
+					break;
 				default:
 					require(__DIR__.'/pages/main.php');
 					break;
