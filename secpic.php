@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+include_once("auth.php");
+
  $height = 60;                  
  $font_size = 17.5;   			
  $let_amount = 7;               

@@ -12,7 +12,8 @@ if (pg_ping($dp))
 else
 {
 echo "ОБЛОМАШКИ ;(";
+	die();
 }
-//pg_query("SET CHARACTER SET 'utf8'");
+pg_query("SET CHARACTER SET 'utf8'");
 
 ?>

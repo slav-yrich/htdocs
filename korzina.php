@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php include_once("auth.php");?>
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
