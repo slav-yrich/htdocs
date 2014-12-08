@@ -10,10 +10,10 @@ $pass=($pass);
  $row = pg_fetch_array($result);
  unset($_SESSION['error_auth']);
  if (isset($row)) {
- 	if (($pass) == $row['password'])
+ 	if (md5($pass) == $row['password'])
  		{header ('Location:index.php?p=lk&id='.$row['id']);
  	$_SESSION['login']=$row['id'];
- 	$_SESSION['pass']=$row['password'];
+ 	//$_SESSION['pass']=$row['password'];
  	
  	
  	exit();}
@@ -24,7 +24,7 @@ $pass=($pass);
  }
  }
  else {
-header ('Location:registr.php');
+header ('Location:/index.php?p=registr');
  	exit();
  }
  ?>

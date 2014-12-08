@@ -16,6 +16,22 @@
 												$tmp  = pg_fetch_array($handle);
 												$t2=max($tmp)+1;
 												$password=MD5($_POST['pass1']);
+												//var_dump($_FILES["picture"]);
+												if(is_uploaded_file($_FILES["picture"]["tmp_name"]))
+												{
+													// Если файл загружен успешно, перемещаем его
+													// из временной директории в конечную
+													$pic=explode(".",$_FILES["picture"]["name"]);
+													if ((mb_strtolower($pic[1])=='jpg')||(mb_strtolower($pic[1])=='jpeg')||(mb_strtolower($pic[1])=='gif')||(mb_strtolower($pic[1])=='bmp')||(mb_strtolower($pic[1])=='png')){
+														$addpic=dirname( __DIR__ )."/img/readers/".$t1.".".$pic[1];
+														move_uploaded_file($_FILES["picture"]["tmp_name"],$addpic );
+													} else {
+														echo('Картинка не загружена, так как данный формат не поддерживается!<br>');
+														$addpic="img/readers/default.jpg";
+													}
+												} else {
+													$addpic="img/readers/default.jpg";
+												}
 												pg_query("INSERT INTO reader (id, barcode,name,password,surname,patronymic,datebirth,position,login,department,organization,address) 
 													VALUES 
 														('$t1',
@@ -27,7 +43,7 @@
 														'".$_POST['datebirds']."',
 														'".$_POST['group']."',
 														'".$_POST['login']."',
-														'".(int)$_POST['depart']."',
+														'".(int)$_POST['deprt']."',
 														'".(int)$_POST['org']."',
 														'".$_POST['adress']."')
 												");

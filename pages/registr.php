@@ -1,7 +1,7 @@
 			<div class="row-fluid">
 				<div class="span6">
 					<h1>Регистрация</h1>
-						<form method="POST" action="index.php?p=regis">
+						<form method="POST" action="index.php?p=regis" enctype="multipart/form-data">
 						<table>
 				            <colgroup width="230" >
 				            <colgroup width="150" >
