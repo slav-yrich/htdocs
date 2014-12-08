@@ -118,7 +118,42 @@ exit;
 								$kategor='%';
 							}
 
-							$result = pg_query("SELECT * FROM book 
+
+
+							$result_book_id = pg_query("SELECT id_book FROM book 
+												WHERE author IN (SELECT id FROM author WHERE author_fio LIKE '%$avtor%')
+													AND category IN (SELECT id FROM category WHERE category_name LIKE '%$kategor%')
+													AND title LIKE '%$nazvanie%' ");
+
+							$array_book_id = pg_fetch_array($result_book_id);
+
+							echo '<h1>Результаты поиска:</h1>';
+							
+							if(count($array_book_id)>0)
+							{
+								echo 'По вашему запросу найдены следующие книги:'.'<br>';
+								foreach ($array_book_id as  $current_book_id) 
+								{
+									echo $current_book_id.'<br>';
+									/*$book=pg_fetch_array($result);
+									//$cur_result= pg_query("SELECT * FROM author WHERE id=$book['author']");
+									//$cur_author = pg_fetch_array($cur_result);
+									echo "(code: ".$book['barcode_book'].
+									 	", название: ".$book['title'].
+									 	", автор: ".$book['author'].
+									 	")<br>";*/
+								}
+								
+								echo "Всего найдено:".$array_book_id[0]."<br>";
+							}
+							else
+							{
+								Echo "Сожалеем, но в базе нет такой книги. Попробуйте расширить условия поиска.";
+							}
+
+
+
+							/*$result = pg_query("SELECT * FROM book 
 												WHERE author IN (SELECT id FROM author WHERE author_fio LIKE '%$avtor%')
 													AND category IN (SELECT id FROM category WHERE category_name LIKE '%$kategor%')
 													AND title LIKE '%$nazvanie%' ");
@@ -141,7 +176,7 @@ exit;
 									//$cur_author = pg_fetch_array($cur_result);
 									echo "(code: ".$book['barcode_book'].
 									 	", название: ".$book['title'].
-									 	", автор: ".$book['author']./*$cur_author['author_fio'].*/
+									 	", автор: ".$book['author']./*$cur_author['author_fio'].
 									 	")<br>";
 								}
 								
@@ -150,7 +185,7 @@ exit;
 							else
 							{
 								Echo "Сожалеем, но в базе нет такой книги. Попробуйте расширить условия поиска.";
-							}
+							}*/
 						}
 
 		poisk($avtor, $nazvanie, $kategor);
