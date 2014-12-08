@@ -6,8 +6,9 @@ include_once("auth.php");
 <head>
 <?php
 if(isset($_GET['exit'])){
+unset($_SESSION['login']);
 session_destroy();
-echo('	<meta http-equiv="refresh" content="0;url=avtoriz.html">');
+echo('	<meta http-equiv="refresh" content="0;url=/">');
 exit;
 }
 ?>
@@ -68,7 +69,11 @@ exit;
 						</form>
 					</div>
 					<div class="span2">
+						<?php if (!(isset($_SESSION['login']))) { ?>
 						<a href="#authModal" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal"><i class="icon-user"></i>&nbsp;Авторизация</a>
+						<?php } else { ?>
+						<a href="/index.php?exit=1" role="button" id="authModalBtn" class="btn pull-right" data-toggle="modal"><i class="icon-user"></i>&nbsp;Выход</a>
+						<?php }?>
 					</div>
 				</div>
 			</div>
