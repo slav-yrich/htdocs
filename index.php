@@ -100,89 +100,50 @@ exit;
 <div class="content clearfix">
 	<div class="container">
 		<div class="contentIndents">
-			<div class="row-fluid">
-				<div class="span6">
-					<br>
-					<br>
-					<br>
-					<br>
-				<img src="img/main.jpg">
-				</div>
-
-
-
-				<div class="span6">
-					<h3>&nbsp;</h3>
-					<div class="well clearfix homeLinks">
-						<ul class="thumbnails">
-							<li>
-								<a href="korzina.php" class="thumbnail">
-									<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
-									<h3>Корзина</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="catalog.php" class="thumbnail">
-									<img src="img/icon-archive_64.png" class="pull-left" alt="">
-									<h3>Каталог</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="poisk.php" class="thumbnail">
-									<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
-									<h3>Поиск</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
-									<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
-									<h3>Личный кабинет</h3>
-									<p><small>Вход в личный кабинет сотрудника</small></p>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-				</div>			</div>
+		<?php
+			switch ($_GET['p']) {
+				case 'main':
+					require(__DIR__.'/pages/main.php');
+					break;
+				default:
+					require(__DIR__.'/pages/main.php');
+					break;
+			}
+		?>
 		</div>
 	</div>
 </div>
 
-
 <footer class="clearfix">
 	<div class="container">
-		<div class="row">
-			<div class="span4">
-				<address>
-					<strong>СПб ГБУК "ГМГС"</strong><br>
-					197101, Санкт-Петербург,<br>
-					Невский проспект 179<br>
-					<abbr title="Телефон">тел.</abbr>: +7 (812) 274 26 35
-				</address>
-				<address>
-					<strong>Разработано в Отделе ИТ:</strong><br>
-					<i class="icon-envelope icon-white"></i>&nbsp;<a href="mailto:it.gmgs@gmail.com">it.gmgs@gmail.com</a>
-				</address>
-			</div>
+		<div class="contentIndents">
+			<div class="row-fluid">
+				<div class="span4">
+					<address>
+						<strong>СПб ГБУК "ГМГС"</strong><br>
+						197101, Санкт-Петербург,<br>
+						Невский проспект 179<br>
+						<abbr title="Телефон">тел.</abbr>: +7 (812) 274 26 35
+					</address>
+					<address>
+						<strong>Разработано в Отделе ИТ:</strong><br>
+						<i class="icon-envelope icon-white"></i>&nbsp;<a href="mailto:it.gmgs@gmail.com">it.gmgs@gmail.com</a>
+					</address>
+				</div>
 
-			<div class="span8">
-				<ul class="footer-links">
-					<li class="pull-right"><a href="#"><i class="icon-arrow-up"></i>&nbsp;Наверх</a></li>
-					<li><a href="korzina.php">Корзина</a></li>
-					<li><a href="catalog.php">Каталог</a></li>
-					<li><a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank">Личный кабинет</a></li>
-					
-				</ul>
-				<hr>
+				<div class="span8">
+					<ul class="footer-links">
+						<li class="pull-right"><a href="#"><i class="icon-arrow-up"></i>&nbsp;Наверх</a></li>
+						<li><a href="korzina.php">Корзина</a></li>
+						<li><a href="catalog.php">Каталог</a></li>
+						<li><a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank">Личный кабинет</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
 </footer>
+
 <div id="authModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

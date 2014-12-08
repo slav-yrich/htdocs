@@ -96,7 +96,7 @@ div.content {
 	background: #D1D9E4 url(../img/marginBg.jpg);
 }
 
-	div.content div.container {
+	div.content {
 		background: url(../img/contentBg.jpg);
 		box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	}
