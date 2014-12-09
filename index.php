@@ -107,6 +107,8 @@ exit;
 				case 'autherr':
 				case 'catalog':
 				case 'category':
+				case 'changepassword':
+				case 'changepassword_next':
 				case 'edit':
 				case 'edit_next':
 				case 'history':
