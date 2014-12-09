@@ -23,10 +23,10 @@ exit;
 	<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/main.js"></script>
-	
+
 
 	<script type="text/javascript" src="/js/validation.js"></script>
-	
+
 	<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
 	<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.1.css" media="screen" />
@@ -45,7 +45,7 @@ exit;
 	</script>
 
 
-	
+
 	</head>
 
 <body>
@@ -103,23 +103,22 @@ exit;
 		<div class="contentIndents">
 		<?php
 			switch (@$_GET['p']) {
-				case 'main':
-					require(__DIR__.'/pages/main.php');
-					break;
-				case 'regis':
-					require(__DIR__.'/pages/regis.php');
-					break;
-				case 'registr':
-					require(__DIR__.'/pages/registr.php');
-					break;
-				case 'poisk':
-					require(__DIR__.'/pages/poisk.php');
-					break;
-				case 'poisk_next':
-					require(__DIR__.'/pages/poisk_next.php');
-					break;
+				case 'annot':
 				case 'autherr':
-					require(__DIR__.'/pages/autherr.php');
+				case 'catalog':
+				case 'category':
+				case 'edit':
+				case 'edit_next':
+				case 'history':
+				case 'issuance':
+				case 'korzina':
+				case 'lk':
+				case 'main':
+				case 'poisk':
+				case 'poisk_next':
+				case 'regis':
+				case 'registr':
+					require(__DIR__."/pages/$_GET['p'].php");
 					break;
 				default:
 					require(__DIR__.'/pages/main.php');
