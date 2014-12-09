@@ -1,29 +1,17 @@
-<?php session_start();?>
 <?php
-include('pdsql.php');
-
-if(isset($_GET['exit']) || !isset($_SESSION['login'])){
-session_destroy();
-echo('	<meta http-equiv="refresh" content="0;url=avtoriz.html">');
-exit;
-} 
 
 $id=$_POST['qw'];
 $query="SELECT * FROM reader WHERE id='$id'";
 $sql=pdsql_query($query);
 $row=pdsql_fetch_array($sql);
 
-
-
-
- 
 $values = array(
     'surname' => 'sur', 'name' => 'name', 'patronymic' => 'otch',
     'datebirth' => 'bday',
 );
- 
+
 $id = isset($_POST['qw']) ? (int) $_POST['qw'] : 0;
- 
+
 if(empty($id))
 {
     //qw не ввели, обновлять нечего.
