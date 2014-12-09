@@ -29,8 +29,8 @@ function goToPage()
 					echo '<img src="img/def.jpg" style="width: 300px; heigth: 500px;"  class="thumbnail" >';
 				}
 	echo '<p class="green1">'.'<b>Автор:&nbsp</b>' .'<br>'.$gow['author_fio'].'</p>';
-	if (strlen($row['discription']) >= 1){
-	echo '<p class="green">'.'<b>Описание:&nbsp</b>'.'<br>'.$row['discription'].'</p>';}
+	if (strlen($row['text']) >= 1){
+	echo '<p class="green">'.'<b>Описание:&nbsp</b>'.'<br>'.$row['text'].'</p>';}
 	else {
 		echo '<p class="green">'.'<b>Описание&nbsp</b>'.' отсутсвует'.'</p>';
 	}
