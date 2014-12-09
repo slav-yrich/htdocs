@@ -118,7 +118,7 @@ exit;
 				case 'poisk_next':
 				case 'regis':
 				case 'registr':
-					require(__DIR__."/pages/$_GET['p'].php");
+					require(__DIR__."/pages/".$_GET['p'].".php");
 					break;
 				default:
 					require(__DIR__.'/pages/main.php');
