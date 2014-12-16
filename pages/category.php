@@ -1,7 +1,7 @@
 <?php $num_cat = $_GET['num_cat'];
 if (!isset($_SESSION['login'])) {
-	echo '<a href="avtoriz.html">Войдите в систему</a><br>
-	<a href="regis.html">или зарегистрируйтесь</a>';
+	echo '<a href="/index.php">Войдите в систему</a><br>
+	<a href="/index.php?p=registr">или зарегистрируйтесь</a>';
 	exit;
 }
 $query2 ="SELECT category_name FROM category WHERE id=$num_cat";
@@ -25,7 +25,7 @@ for ($i=1; $i <= pg_num_rows($sql3) ; $i++) {
 	$sql_q  = pg_query($query_q);
 	$gow = pg_fetch_array($sql_q);
 
-	echo '<li><a href="annot.php?num_book='.$row3['id_book'].'"><p>&nbsp'.$i.' '.$row3['title'].', '.$gow['author_fio'].' - '.$row3['totalpages'].'&nbsp стр., '.$row3['publish'].', '.$row3['year'].'г.</p></a>'.'</li>';
+	echo '<li><a href="/index.php?p=annot&num_book='.$row3['id_book'].'"><p>&nbsp'.$i.' '.$row3['title'].', '.$gow['author_fio'].' - '.$row3['totalpages'].'&nbsp стр., '.$row3['publish'].', '.$row3['year'].'г.</p></a>'.'</li>';
 pg_query($query_q) or die(pg_error());
 }
 	?>
@@ -34,47 +34,39 @@ pg_query($query_q) or die(pg_error());
 					</ul>
 
 				</div>
-				<div class="span6">
-					<h3>&nbsp;</h3>
-					<div class="well clearfix homeLinks">
-						<ul class="thumbnails">
-							<li>
-								<a href="korzina.php" class="thumbnail">
-									<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
-									<h3>Корзина</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="catalog.php" class="thumbnail">
-									<img src="img/icon-archive_64.png" class="pull-left" alt="">
-									<h3>Каталог</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="poisk.php" class="thumbnail">
-									<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
-									<h3>Поиск</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
-									<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
-									<h3>Личный кабинет</h3>
-									<p><small>Вход в личный кабинет сотрудника</small></p>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-
-
-
-
-					</div>
-
-
-				</div>
+<div class="span6">
+	<h3>&nbsp;</h3>
+	<div class="well clearfix homeLinks">
+		<ul class="thumbnails">
+			<li>
+				<a href="/index.php?p=korzina" class="thumbnail">
+				<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
+				<h3>Корзина</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=catalog" class="thumbnail">
+				<img src="img/icon-archive_64.png" class="pull-left" alt="">
+				<h3>Каталог</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=poisk" class="thumbnail">
+				<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
+				<h3>Поиск</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=lk&id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
+				<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
+				<h3>Личный кабинет</h3>
+				<p><small>Вход в личный кабинет сотрудника</small></p>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+		</ul>
+	</div>		
+</div>

@@ -58,9 +58,7 @@ exit;
 						<ul class="nav">
 							<li class="active"><a href="/"><i class="icon-home"></i>&nbsp;Главная</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="/stat/50/instraction.htm" rel="tooltip" title="Руководство для авторов по созданию методического пособия">Инструкция</a></li>
-							<li class="divider-vertical"></li>
-							<li><a href="/catalog/catalog.htm" rel="tooltip" title="Каталог методических пособий">Каталог</a></li>
+							<li><a href="/index.php?p=catalog" rel="tooltip" title="Каталог методических пособий">Каталог</a></li>
 						</ul>
 						<form class="navbar-search form-search" action="/index.php?p=poisk" method="POST">
 							<div class="input-append">
@@ -102,29 +100,10 @@ exit;
 	<div class="container">
 		<div class="contentIndents">
 		<?php
-			switch (@$_GET['p']) {
-				case 'annot':
-				case 'autherr':
-				case 'catalog':
-				case 'category':
-				case 'changepassword':
-				case 'changepassword_next':
-				case 'edit':
-				case 'edit_next':
-				case 'history':
-				case 'issuance':
-				case 'korzina':
-				case 'lk':
-				case 'main':
-				case 'poisk':
-				case 'poisk_next':
-				case 'regis':
-				case 'registr':
-					require(__DIR__."/pages/".$_GET['p'].".php");
-					break;
-				default:
-					require(__DIR__.'/pages/main.php');
-					break;
+			if (file_exists(__DIR__.'/pages/'.@$_GET['p'].'.php')&&(!(preg_match("/^\.\./", @$_GET['p'])))) {
+				include(__DIR__.'/pages/'.@$_GET['p'].'.php');
+			} else {
+				include(__DIR__.'/pages/main.php');
 			}
 		?>
 		</div>
@@ -151,9 +130,9 @@ exit;
 				<div class="span8">
 					<ul class="footer-links">
 						<li class="pull-right"><a href="#"><i class="icon-arrow-up"></i>&nbsp;Наверх</a></li>
-						<li><a href="korzina.php">Корзина</a></li>
-						<li><a href="catalog.php">Каталог</a></li>
-						<li><a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank">Личный кабинет</a></li>
+						<li><a href="/index.php?p=korzina">Корзина</a></li>
+						<li><a href="/index.php?p=catalog">Каталог</a></li>
+						<li><a href="/index.php?p=lk&id=<?php echo $_SESSION['login'];?>" target="_blank">Личный кабинет</a></li>
 					</ul>
 				</div>
 			</div>

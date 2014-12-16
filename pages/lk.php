@@ -7,9 +7,9 @@ window.open(popupPath,'name',
 </script>
 	<?php
 $id = $_GET['id'];
-if ($id != $_SESSION['login']) {session_destroy();
-echo 'НЕ ШАЛИТЬ! <a href="avtoriz.html">Войдите в систему</a><br>
-	<a href="regis.html">или зарегистрируйтесь</a>';
+if ($id != @$_SESSION['login']) {session_destroy();
+echo 'НЕ ШАЛИТЬ! <a href="/">Войдите в систему</a><br>
+	<a href="/index.php?p=registr">или зарегистрируйтесь</a>';
 	exit;}
 $query="SELECT * FROM reader WHERE id=$id";
 $sql=pg_query($query);
@@ -85,42 +85,3 @@ echo '<tr><td>'.$row3['date_start'].'</td><td>'.$row5['author_fio'].'</td><td>'.
  						<a href="javascript:doPopup('history.php');">История операций</a>
 				</div>
 
-
-             <div class="12">
-				<div class="span6">
-					<h3>&nbsp;</h3>
-					<div class="well clearfix homeLinks">
-						<ul class="thumbnails">
-							<li>
-								<a href="korzina.php" class="thumbnail">
-									<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
-									<h3>Корзина</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="catalog.php" class="thumbnail">
-									<img src="img/icon-archive_64.png" class="pull-left" alt="">
-									<h3>Каталог</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="poisk.php" class="thumbnail">
-									<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
-									<h3>Поиск</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
-									<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
-									<h3>Личный кабинет</h3>
-									<p><small>Вход в личный кабинет сотрудника</small></p>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>	</div>

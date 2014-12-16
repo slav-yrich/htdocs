@@ -47,73 +47,72 @@
 														'".(int)$_POST['org']."',
 														'".$_POST['adress']."')
 												");
-												echo("Мои поздравления, ".$_POST['fname'].", Вы зарегистрировались!<br><a href='avtoriz.html'>Авторизация</a>");
+												echo("Мои поздравления, ".$_POST['fname'].", Вы зарегистрировались!<br><a href='/'>Авторизация</a>");
 											}
 											else
 											{
-												echo('Придумай логин покороче!<br><a href="registr.php">Вернуться на страницу регистрации</a>');
+												echo('Придумай логин покороче!<br><a href="/index.php?p=registr">Вернуться на страницу регистрации</a>');
 											}
 										}
 										else
 										{
-											echo('Пароли не совпадают!<br><a href="registr.php">Вернуться на страницу регистрации</a>');
+											echo('Пароли не совпадают!<br><a href="/index.php?p=registr">Вернуться на страницу регистрации</a>');
 										}
 									}
 									else
 									{
-										echo('Неправильный код с картинки!<br><a href="registr.php">Вернуться на страницу регистрации</a>');
+										echo('Неправильный код с картинки!<br><a href="/index.php?p=registr">Вернуться на страницу регистрации</a>');
 									}
 								}
 								else
 								{
-									echo('Данный логин существует!<br><a href="registr.php">Вернуться на страницу регистрации</a>');
+									echo('Данный логин существует!<br><a href="/index.php?p=registr">Вернуться на страницу регистрации</a>');
 								}
 							}
 							else
 							{ 
-								echo('Введены не все обязательные поля!<br><a href="registr.php">Вернуться на страницу регистрации</a>');
+								echo('Введены не все обязательные поля!<br><a href="/index.php?p=registr">Вернуться на страницу регистрации</a>');
 							}
 						?>
 				</div>
 
 
              <div class="12">
-				<div class="span6">
-					<h3>&nbsp;</h3>
-					<div class="well clearfix homeLinks">
-						<ul class="thumbnails">
-							<li>
-								<a href="korzina.php" class="thumbnail">
-									<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
-									<h3>Корзина</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="catalog.php" class="thumbnail">
-									<img src="img/icon-archive_64.png" class="pull-left" alt="">
-									<h3>Каталог</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="poisk.php" class="thumbnail">
-									<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
-									<h3>Поиск</h3>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-							<li>
-								<a href="lk.php?id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
-									<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
-									<h3>Личный кабинет</h3>
-									<p><small>Вход в личный кабинет сотрудника</small></p>
-									<div class="clearfix"></div>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>	
-			</div>		
+				
+<div class="span6">
+	<h3>&nbsp;</h3>
+	<div class="well clearfix homeLinks">
+		<ul class="thumbnails">
+			<li>
+				<a href="/index.php?p=korzina" class="thumbnail">
+				<img src="img/icon-strategy2_64.png" class="pull-left" alt="">
+				<h3>Корзина</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=catalog" class="thumbnail">
+				<img src="img/icon-archive_64.png" class="pull-left" alt="">
+				<h3>Каталог</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=poisk" class="thumbnail">
+				<img width="55" src="img/icon-search_64.png" class="pull-left" alt="">
+				<h3>Поиск</h3>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+			<li>
+				<a href="/index.php?p=lk&id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
+				<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
+				<h3>Личный кабинет</h3>
+				<p><small>Вход в личный кабинет сотрудника</small></p>
+				<div class="clearfix"></div>
+				</a>
+			</li>
+		</ul>
+	</div>		
+</div>		
 		</div>
