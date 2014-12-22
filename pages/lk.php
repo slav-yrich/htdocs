@@ -33,7 +33,7 @@ return $newDate;
 				            <colgroup width="230" >
 				            <colgroup width="150" >
 				            	<tr>
-				            		<td rowspan="7"><img src="img/lib_photos/<?php echo $row['barcode'];?>.jpg" alt=""></td>
+				            		<td rowspan="7"><img src="img/readers/<?php echo $row['id'];?>.jpg" alt=""></td>
 				            	</tr>
 				              	<tr>
 				              		<td>Фамилия:</td>
@@ -60,7 +60,7 @@ return $newDate;
 				            		<td class="td"><?php echo $row2['departmentname'];?></td>
 				            	</tr>
 				            	<tr>
-				            	<td><a href="javascript:doPopup('edit.php');">Редактировать данные</a></td>
+				            	<td><a href="javascript:doPopup('index.php?p=edit&amp;id=<?php echo $_SESSION['login'];?>');">Редактировать данные</a></td>
 
 	  							</tr>
 	  					</table>
@@ -84,6 +84,6 @@ echo '<tr><td>'.FormatDate($row3['date_start']).'</td><td>'.$row5['author_fio'].
 }
 ?>
  						</table><br>
- 						<a href="javascript:doPopup('history.php');">История операций</a>
+ 						<a href="javascript:doPopup('index.php?p=history');">История операций</a>
 				</div>
 

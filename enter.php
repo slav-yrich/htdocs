@@ -6,6 +6,7 @@ $pass=$_POST['pass'];
 $pass=($pass);
 
  $query="SELECT * FROM reader WHERE login = '$login'";
+
  $result = pg_query($query);
  $row = pg_fetch_array($result);
  unset($_SESSION['error_auth']);

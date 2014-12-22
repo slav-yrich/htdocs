@@ -39,3 +39,7 @@ $row5=pg_fetch_array($sql5)or die(pg_error() );
 
 }
 ?>
+</colgroup>
+</table>
+</div>
+</div>

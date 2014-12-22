@@ -14,7 +14,7 @@ $row2=pg_fetch_array($sql2);
     <a class="hiddenanchor" id="tologin"></a>
     <div id="wrapper">
         <div id="login" class="animate form">
-            <form  action="index.php?p=editt" method="post">
+            <form  action="index.php?p=edit_next" method="post">
                 <h1>Редактирование данных</h1>
 
                 <p>

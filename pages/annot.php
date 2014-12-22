@@ -12,7 +12,7 @@
 function goToPage()
 {
 
-	document.location.href = "issuance.php";
+	document.location.href = "index.php?p=issuance";
 }
 </script>
 

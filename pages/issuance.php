@@ -1,9 +1,4 @@
 
-if(isset($_GET['exit']) || !isset($_SESSION['login'])){
-session_destroy();
-echo('	<meta http-equiv="refresh" content="0;url=avtoriz.html">');
-exit;
-} ?>
  <?php
   $num_book =  $_SESSION['n_book'];
 	$query = "SELECT * FROM book WHERE id_book = $num_book";
