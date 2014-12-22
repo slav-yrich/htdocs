@@ -31,7 +31,7 @@ else
     }
     else
     {
-        $res = pg_query('UPDATE `reader` SET ' . rtrim($query, ', ') . ' WHERE `id` = ' . $id);
+        $res = pg_query('UPDATE `reader`  SET ' . rtrim($query, ', ') .  '   WHERE `id` = ' . $id);
         if($res && pg_affected_rows() > 1)
             echo 'Данные изменены успешно';
     }

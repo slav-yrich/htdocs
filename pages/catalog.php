@@ -7,7 +7,7 @@
 						<?php
 
 $query = "SELECT * FROM category";
-$result = pg_query($query) or die(pg_error());
+$result = pg_query($query)  /*or die(pg_error())*/ ;
 if   (pg_num_rows($result) > 0){
     $cats = array();
     while($cat =  pg_fetch_assoc($result)){

@@ -79,9 +79,7 @@ return $newDate;
 
 	  							</tr>
                                 <tr>
-                                <td> <?php 
-		  echo "<a href='javascript:doPopup(\"index.php?p=history\");'> История операций </a>" ;
-		  ?>							</td>
+                                <td><a href='javascript:doPopup("index.php?p=history");'>История операций</a></td>
                                 </tr>
                                 </colgroup>
                                 </colgroup>
