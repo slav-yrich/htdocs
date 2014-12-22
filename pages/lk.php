@@ -71,13 +71,18 @@ return $newDate;
 				            		<td class="td"><?php echo $row['telephone'];?></td>
 				            	</tr>
                                  <tr>
-				            		<td>Адрес:</td>
+				            		<td >Адрес:</td>
 				            		<td class="td"><?php echo $row['address'];?></td>
 				            	</tr>
 				            	<tr>
 				            	<td><a href="javascript:doPopup('index.php?p=edit&amp;id=<?php echo $_SESSION['login'];?>');">Редактировать данные</a></td>
 
 	  							</tr>
+                                <tr>
+                                <td> <?php 
+		  echo "<a href='javascript:doPopup(\"index.php?p=history\");'> История операций </a>" ;
+		  ?>							</td>
+                                </tr>
                                 </colgroup>
                                 </colgroup>
                                
@@ -118,10 +123,9 @@ return $newDate;
 			</li>
 		</ul>
 	</div>		
-    <?php 
-		  echo "<a href='javascript:doPopup(\"index.php?p=history\");'> История операций </a>" ;
-		  ?>
+   
 </div>
+
 						<div>
 					<h1>Список выданной литературы</h1>
 						<table  class="tabl" border="2" width="650">
