@@ -8,8 +8,7 @@ window.open(popupPath,'name',
 	<?php
 $id = $_GET['id'];
 if ($id != @$_SESSION['login']) {session_destroy();
-echo 'НЕ ШАЛИТЬ! <a href="/">Войдите в систему</a><br>
-	<a href="/index.php?p=registr">или зарегистрируйтесь</a>';
+echo 'Войдите в систему	или зарегистрируйтесь.';
 	exit;}
 $query="SELECT * FROM reader WHERE id=$id";
 $sql=pg_query($query);
