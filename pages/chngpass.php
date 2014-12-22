@@ -54,7 +54,7 @@ if (isset($_POST['submit'])){
 // Отправляем письмо
         if (mail($email, $title, $letter, "Content-type:text/plain; Charset=windows-1251\r\n")) {
              pg_query("UPDATE reader SET password = '$newmdPassword' WHERE login = '$login'  AND address = '$email'");
-        echo 'Новый пароль отправлен на ваш e-mail!<br><a ref="index.php">Главная страница</a>';
+        echo 'Новый пароль отправлен на ваш e-mail!';
          }
       }                              
    }
