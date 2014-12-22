@@ -50,11 +50,11 @@ if (isset($_POST['submit'])){
         }
         $newmdPassword = md5($password); 
         $title = 'Востановления пароля пользователю '.$login.' для сайта ymnyashi.ru!';
-        $letter = 'Вы запросили восстановление пароля для аккаунта '.$login.' на сайте ymnyashi.ru \r\nВаш новый пароль: '.$password.'\r\nС уважением админестрация сайта Site.ru';
+        $letter = 'You asked to reset your password for the ymnyashi-account '.$login.' .New password is: '.$password.'\r\nYours sincerely, ymnyashi.ru.ru';
 // Отправляем письмо
         if (mail($email, $title, $letter, "Content-type:text/plain; Charset=windows-1251\r\n")) {
              pg_query("UPDATE reader SET password = '$newmdPassword' WHERE login = '$login'  AND address = '$email'");
-        echo 'Новый пароль отправлен на ваш e-mail!';
+        echo 'Новый пароль отправлен на ваш e-mail! Если письмо не получено, проверьте папку Спам.';
          }
       }                              
    }
