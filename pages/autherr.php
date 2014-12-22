@@ -1,2 +1,2 @@
 Ошибка входа: Неверный логин или пароль.
-<a href="/index.php?p=chngpass">Изменить пароль</a>
+<a href="/index.php?p=chngpass.php">Изменить пароль</a>
