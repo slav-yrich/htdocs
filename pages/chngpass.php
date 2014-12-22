@@ -1,3 +1,4 @@
+
 <table> 
       <form method="POST">
       <tr>
@@ -58,5 +59,5 @@ if (isset($_POST['submit'])){
       }                              
    }
 }
-mysql_close();
+pg_close();
 ?>
