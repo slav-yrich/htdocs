@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/index.php?p=lk&id=<?php echo $_SESSION['login'];?>" target="_blank" class="thumbnail">
+				<a href="/index.php?p=lk&id=<?php echo $_SESSION['login'];?>" class="thumbnail">
 				<img src="img/icon-textDocuments_64.png" class="pull-left" alt="">
 				<h3>Личный кабинет</h3>
 				<p><small>Вход в личный кабинет сотрудника</small></p>
