@@ -118,13 +118,19 @@ return $newDate;
 			</li>
 		</ul>
 	</div>		
+    <?php 
+		  echo "<a href='javascript:doPopup(\"index.php?p=history\");'> История операций </a>" ;
+		  ?>
 </div>
 						<div>
 					<h1>Список выданной литературы</h1>
 						<table  class="tabl" border="2" width="650">
 							<colgroup>
       							 <th>Дата</th><th>Автор</th><th>Наименование</th><th>Штрих-код</th>
-     <?php $query3="SELECT * FROM event WHERE status = 2 AND barcode_reader=".$row['barcode'];
+                                 </colgroup>
+                                 
+     <?php 
+	 $query3="SELECT * FROM event WHERE status = 2 AND barcode_reader=".$row['barcode'];
 $sql3=pg_query($query3) /*or die('<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>'	 )*/;
 for ($i=1; $i <= pg_num_rows($sql3) ; $i++)
   {
@@ -137,11 +143,15 @@ $sql5=pg_query($query5);
 $row5=pg_fetch_array($sql5) /*or die(pg_error()  )*/;
 echo '<tr><td>'.FormatDate($row3['date_start']).'</td><td>'.$row5['author_fio'].'</td><td>'.$row4['title'].'</td><td>'.$row3['barcode_book'].'</td></tr>';
 }
-echo '<a href="javascript:doPopup("index.php?p=history");">  История операций  </a>' ;
+
 	}
-?>
-						</colgroup>
- 						</table><br>
- 						
-				</div>
-     </div>
+	?>
+						
+ 						</table> <br>
+ 									</div>
+                                  </div>
+							
+    									
+	
+
+						
