@@ -53,7 +53,7 @@ if (isset($_POST['submit'])){
         $letter = 'Вы запросили восстановление пароля для аккаунта '.$login.' на сайте ymnyashi.ru \r\nВаш новый пароль: '.$password.'\r\nС уважением админестрация сайта Site.ru';
 // Отправляем письмо
         if (mail($email, $title, $letter, "Content-type:text/plain; Charset=windows-1251\r\n")) {
-             pg_query("UPDATE reader SET pass1 = '$newmdPassword' WHERE login = '$login'  AND address = '$email'");
+             pg_query("UPDATE reader SET password = '$newmdPassword' WHERE login = '$login'  AND address = '$email'");
         echo 'Новый пароль отправлен на ваш e-mail!<br><a ref="index.php">Главная страница</a>';
          }
       }                              
