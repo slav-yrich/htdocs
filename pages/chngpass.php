@@ -34,12 +34,12 @@ if (isset($_POST['submit'])){
         echo "Введите e-mail!";
     }
    else{
-        $resultat = mysql_query("SELECT * FROM users WHERE login = '$login' AND adress = '$email'");
-        $array = mysql_fetch_array($resultat);
+        $resultat = pg_query("SELECT * FROM users WHERE login = '$login' AND adress = '$email'");
+        $array = pg_fetch_array($resultat);
         if (empty($array)){
             echo 'Ошибка! Такого пользователя не существует';
         }
-        elseif (mysql_num_rows($resultat) > 0){
+        elseif (pg_num_rows($resultat) > 0){
         $chars="qazxswedcvfrtgbnhyujmkiolp1234567890QAZXSWEDCVFRTGBNHYUJMKIOLP";
         $max=10; 
         $size=StrLen($chars)-1; 
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])){
         $letter = 'Вы запросили восстановление пароля для аккаунта '.$login.' на сайте ymnyashi.ru \r\nВаш новый пароль: '.$password.'\r\nС уважением админестрация сайта Site.ru';
 // Отправляем письмо
         if (mail($email, $title, $letter, "Content-type:text/plain; Charset=windows-1251\r\n")) {
-             mysql_query("UPDATE users SET pass1 = '$newmdPassword' WHERE login = '$login'  AND adress = '$email'");
+             pg_query("UPDATE users SET pass1 = '$newmdPassword' WHERE login = '$login'  AND adress = '$email'");
         echo 'Новый пароль отправлен на ваш e-mail!<br><a ref="index.php">Главная страница</a>';
          }
       }                              
