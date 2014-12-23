@@ -10,15 +10,19 @@
       						Названию<br>  
       						<input class="well sideNav affix-top" name="nazvanie" type="text" value=
       							<?php
-      								if ($_POST["searchTextBox"]!='')
-									{
-										$searchTextBox = $_POST["searchTextBox"];
-									}
-									else
-									{
-										$searchTextBox="";
-									}
+      								$searchTextBox=" ";
+      								
+      									if ($_POST["searchTextBox"]!='')
+										{
+											$searchTextBox = $_POST["searchTextBox"];
+										}
+										else
+										{
+											$searchTextBox="";
+										}
+									
 									echo '"'.$searchTextBox.'"';
+
       							?>
       						><br>
       						Категории<br>  

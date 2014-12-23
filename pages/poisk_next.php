@@ -75,8 +75,9 @@
 
 		poisk($avtor, $nazvanie, $kategor);
 		echo '<form action="index.php?p=poisk" method="post">'.
-					'<input name="net" type="submit" value="Назад">'.
-					'</form>';	
+				'<input type="hidden" name="searchTextBox" value=" ">'.
+				'<input name="net" type="submit" value="Назад">'.
+				'</form>';	
 			
 	?>
 				</div>
