@@ -25,8 +25,8 @@
 
 <?php
 if (isset($_POST['submit'])){     
-    $login = $_POST['login'];
-    $email = $_POST['email'];
+ $login =  pg_escape_string($_POST['login']);
+ $email =  pg_escape_string($_POST['email']);
                 
     if (empty($login)){
         echo "Введите логин!";
