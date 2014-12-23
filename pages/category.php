@@ -1,9 +1,9 @@
-<?php $num_cat = $_GET['num_cat'];
+<?php $num_cat = @$_GET['num_cat'];
 if (!isset($_SESSION['login'])) {
-	echo '<a href="/index.php">Войдите в систему</a><br>
-	<a href="/index.php?p=registr">или зарегистрируйтесь</a>';
-	exit;
+	echo 'Для работы, пожалуйста, <a href="/index.php#authModal" id="authModalBtn" data-toggle="modal">ВОЙДИТЕ В СИСТЕМУ</a> или
+	<a href="/index.php?p=registr">ЗАРЕГИСТРИРУЙТЕСЬ</a>.';
 }
+else {
 $query2 ="SELECT category_name FROM category WHERE id=$num_cat";
 $sql2  = pg_query($query2);
 	$dp = pg_fetch_object($sql2);
@@ -28,13 +28,14 @@ for ($i=1; $i <= pg_num_rows($sql3) ; $i++) {
 	echo '<li><a href="/index.php?p=annot&num_book='.$row3['id_book'].'"><p>&nbsp'.$i.' '.$row3['title'].', '.$gow['author_fio'].' - '.$row3['totalpages'].'&nbsp стр., '.$row3['publish'].', '.$row3['year'].'г.</p></a>'.'</li>';
 pg_query($query_q) or die(pg_error());
 }
+	}
 	?>
 
 </div>
 					</ul>
 
 				</div>
-<div class="span6">
+ 					<!-- <div class="span6">
 	<h3>&nbsp;</h3>
 	<div class="well clearfix homeLinks">
 		<ul class="thumbnails">
@@ -70,3 +71,4 @@ pg_query($query_q) or die(pg_error());
 		</ul>
 	</div>		
 </div>
+						-->

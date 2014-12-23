@@ -1,6 +1,6 @@
 <?php
 if (!(isset($_SESSION['login']))) {
-	header("Location:/");
+	header("Location:/index.php?p=category");
 }
 $id = $_SESSION['login'];
 $query="SELECT * FROM reader WHERE id = $id";

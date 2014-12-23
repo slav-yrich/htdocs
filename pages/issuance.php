@@ -13,7 +13,7 @@
 function goToPage()
 {
 
-	document.location.href = "catalog.php";
+	document.location.href = "/index.php?p=catalog";
 }
 </script>
 			<div class="row-fluid">
@@ -39,7 +39,7 @@ function goToPage()
   			$query = "SELECT MAX(id) FROM event";
   			$sql = pg_query($query) or die (pg_error());
   			$dp = pg_fetch_object($sql);
-  			$last_id = $dp -> id;
+  			$last_id = $dp -> max;
   			$new_id = $last_id+1;
   			$query = "INSERT INTO event (id, barcode_book, barcode_reader, date_start, status) VALUES ('$new_id', '$bar_c_bk','$bar_c_re','$today', '3') ";
   			$sql = pg_query($query) or die (pg_error());
