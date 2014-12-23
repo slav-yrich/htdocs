@@ -1,4 +1,5 @@
 
+
 <table> 
       <form method="POST">
       <tr>
@@ -49,17 +50,13 @@ if (isset($_POST['submit'])){
               $password.=$chars[rand(0,$size)]; 
         }
         $newmdPassword = md5($password); 
-        $title = 'Востановление пароля для сайта ymnyashi.ru!';
-        $letter = "You asked to reset your password for the ymnyashi-account '.$login.' .\r\n  New password is: '.$password.'\r\n   Yours sincerely, ymnyashi.ru";
-        $headers = 'From:  ymnyashir@.ru' . "\r\n" .
-    'RcptTo: '.$email.''. "\r\n" .
-    'Subject: '.$title.''. "\r\n" .
-    'Content-type:text/plain; Charset=windows-1251'  . "\r\n" .
-
-
-        
+        $title = 'Востановления пароля пользователю '.$login.' для сайта ymnyashi.ru!';
+        $letter = "From:  ymnyashir@.ru  \r\n
+    RcptTo: '.$email.' \r\n
+    Subject: '.$title.' \r\n 
+    You asked to reset your password for the ymnyashi-account '.$login.' . \r\n New password is: '.$password.' \r\n   Yours sincerely, ymnyashi.ru";
 // Отправляем письмо
-        if (mail($email, $title, $letter,  $headers)) {
+        if (mail($email, $title, $letter, "Content-type:text/plain; Charset=windows-1251\r\n")) {
              pg_query("UPDATE reader SET password = '$newmdPassword' WHERE login = '$login'  AND address = '$email'");
         echo 'Новый пароль отправлен на ваш e-mail! Если письмо не получено, проверьте папку Спам.';
          }
