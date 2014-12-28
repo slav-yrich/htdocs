@@ -10,9 +10,7 @@
       						Названию<br>  
       						<input class="well sideNav affix-top" name="nazvanie" type="text" value=
       							<?php
-      								$searchTextBox=" ";
-      								
-      									if ($_POST["searchTextBox"]!='')
+      										if (@$_POST["searchTextBox"]!='')
 										{
 											$searchTextBox = $_POST["searchTextBox"];
 										}
