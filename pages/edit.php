@@ -1,11 +1,15 @@
 <?php
-$id=$_SESSION['login'];
+pg_set_client_encoding("UTF-8");
+
+$id=$_SESSION['login']; 
 $query="SELECT * FROM reader WHERE id=$id";
 $sql=pg_query($query);
 $row=pg_fetch_array($sql);
+
 $query1="SELECT * FROM organization WHERE id=".$row['organization'];
 $sql1=pg_query($query1);
 $row1=pg_fetch_array($sql1);
+
 $query2="SELECT * FROM department WHERE id=".$row['department'];
 $sql2=pg_query($query2);
 $row2=pg_fetch_array($sql2);
@@ -34,14 +38,9 @@ $row2=pg_fetch_array($sql2);
                 	   <p> <input  class="tr2" type="text" value="<?php echo $row['datebirth'];?>" name="bday">   </p>
                 </p>
 
-
-
-
-
-
                  <input type="hidden" name="qw" value="<?php echo $_SESSION['login'];?>">
                 <p class="login button">
-                    <input type="submit" value="Отправить форму" />
+                    <input type="submit" value="Применить" />
                 </p>
 
             </form>
